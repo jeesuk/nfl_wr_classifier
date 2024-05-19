@@ -35,7 +35,7 @@ In a sports context, I've also only seen KNN models used to identify the positio
 
 So I set out to build a model that can be applied to college, CFL, and UFL data to find overlooked receivers.
 <img src="images/intro_seahawks_war_room.jpg" alt="Inspo - Seahawks' War Room" style="width: 50%; height: auto;"><br>
-*The Seahawks' war room during the 2024 draft. Head coach, Mike Macdonald, and general<br>manager, John Schneider, have lots of talent to evaluate.*
+*The Seahawks' war room during the 2024 draft*
 
 **No Accuracy Metric:**<br>
 - Since the model is meant to assign playing styles to receivers, there is no official accuracy metric because playing style is not an official designation. It varies by perspective.
@@ -115,11 +115,6 @@ I evaluated two clustering models, K-Means Clustering and K-Nearest Neighbors.
 
 **K-Means Clustering:**<br>
 I originally intended to use K-Means because it's an unsupervised model and would create clusters of receivers based on the features it was fed. However, with every iteration, I would always see several strange clusterings of receivers with completely different physical attributes and playing styles. I then decided to nix this approach.
-
-<img src="images/kmeans_tyreek_hill.jpg" alt="Tyreek Hill" style="width: 24.5%; height: auto;">
-<img src="images/kmeans_ceedee_lamb.webp" alt="CeeDee Lamb" style="width: 35%; height: auto;"><br>
-
-*Tyreek Hill and CeeDee Lamb should not be in the same category.*
 
 **K-Nearest Neighbors:**<br>
 I turned to KNN so I could train the model on a few receivers who are prototypes of certain playing styles. This was meant to point the model in the right direction when labeling unlabeled receivers.
