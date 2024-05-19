@@ -85,7 +85,7 @@ The SR JSON data structure is very complicated and required some experimentation
 I filtered the Sportradar dataset to only rows that recorded statistics for wide receivers. I also included certain QB-specific features from the passer rows.
 
 ![Filter WR Rows](images/filter_wr_rows.png)<br>
-*Figure : Narrowing down the data to WR-specific rows*
+*Figure 1: Narrowing down the data to WR-specific rows*
 
 **New Features**<br>
 I created new features that I think more granularly capture playing style, such as:
@@ -103,12 +103,12 @@ I created new features that I think more granularly capture playing style, such 
 I then aggregated the data by receiver for the 2022 season and joined it to the PFF and Combine data.
 
 ![Aggregated WRs](images/agg_receivers.png)<br>
-*Figure : Data aggregated by receiver*
+*Figure 2: Data aggregated by receiver*
 
 I also created new features once the data were aggregated by receiver. This cell shows how I created utilization rates based on route type and play type as percentages of targets for the season.
 
 ![Utilization Rate](images/agg_utilization_rate.png)<br>
-*Figure : Utilization rates*
+*Figure 3: Utilization rates*
 
 ## Methodology
 I evaluated two clustering models, K-Means Clustering and K-Nearest Neighbors.
@@ -116,8 +116,8 @@ I evaluated two clustering models, K-Means Clustering and K-Nearest Neighbors.
 **K-Means Clustering:**<br>
 I originally intended to use K-Means because it's an unsupervised model and would create clusters of receivers based on the features it was fed. However, with every iteration, I would always see several strange clusterings of receivers with completely different physical attributes and playing styles. I then decided to nix this approach.
 
-<img src="images/kmeans_tyreek_hill.jpg" alt="Tyreek Hill" style="width: 28%; height: auto;">
-<img src="images/kmeans_ceedee_lamb.webp" alt="CeeDee Lamb" style="width: 40%; height: auto;"><br>
+<img src="images/kmeans_tyreek_hill.jpg" alt="Tyreek Hill" style="width: 24.5%; height: auto;">
+<img src="images/kmeans_ceedee_lamb.webp" alt="CeeDee Lamb" style="width: 35%; height: auto;"><br>
 
 *Tyreek Hill and CeeDee Lamb should not be in the same category.*
 
@@ -182,7 +182,7 @@ Since there is no accuracy metric, the model user must apply their football expe
 - Julio Jones, despite being very big and fast, is a truly versatile receiver. I'm impressed that the model didn't classify him as "Big Speedster."
 - Terry McLaurin, DJ Moore, and DJ Chark are great picks.
 ![Versatile](images/versatile.png)<br>
-*Figure : Versatile receivers*
+*Figure 4: Versatile receivers*
 <br><br>
 
 **Route Technician**
@@ -190,40 +190,40 @@ Since there is no accuracy metric, the model user must apply their football expe
 - Amari Cooper - Highly praised for his crisp route running.
 - DeSean Jackson - More of a speedster, and not a refined route runner. 42% of his routes are mostly vertical (go, corner, and post). 29% of his routes are curls. This does not make for a varied route tree.
 ![Route Technicians](images/route_technician.png)<br>
-*Figure : Route Technicians*
+*Figure 5: Route Technicians*
 <br><br>
 
 **Speedster**
 - The expected traits are well-represented: sub-4.4 40, sub-200 weight, high ADOT, and high utilization in deep passes and vertical routes.
 ![Speedster](images/speedster.png)<br>
-*Figure : Speedsters*
+*Figure 6: Speedsters*
 <br><br>
 
 **Big Speedster**
 - Looks fairly accurate, based on 40 time, bench press reps, average depth of target, average YAC, and percentage of vertical routes.
 - Receivers with 40 times in the upper 4.5s should not be in this category.
 ![Big Speedster](images/big_speedster.png)<br>
-*Figure : Big Speedsters*
+*Figure 7: Big Speedsters*
 <br><br>
 
 **Possession**
 - Looks good. Michael Pittman, Drake London, and Courtland Sutton are commonly thought of as possession receivers.
 ![Possession](images/possession.png)<br>
-*Figure : Possession receivers*
+*Figure 8: Possession receivers*
 <br><br>
 
 **YAC Specialist**
 - Not a lot of receivers, as expected. If you're not that great at running routes, but can still make big yardage gains once the ball is in your hands, you are usually asked to play running back.
 - The model appears to be looking for very low ADOT (sometimes negative, meaning "behind the line of scrimmage"), high average YAC, and high utilization in screen plays.
 ![YAC](images/yac.png)<br>
-*Figure : YAC Specialists*
+*Figure 9: YAC Specialists*
 <br><br>
 
 **Slot**
 - Chris Godwin, Cooker Kupp, Tyler Boyd, and Keenan Allen are here, as expected.
 - The model seems to key off the high slot rate, high utilization in WR screens and direction-changing routes, lower ADOT, and higher YAC
 ![Slot](images/slot.png)<br>
-*Figure : Slot receivers*
+*Figure 10: Slot receivers*
 <br><br>
 
 ### Utilization metrics > success metrics
